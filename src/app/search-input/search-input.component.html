@@ -1,0 +1,19 @@
+<form (ngSubmit)="search(input)">
+  <div class="form">
+    <input
+      type="search"
+      [(ngModel)]="input"
+      name="input"
+      placeholder="Rechercher un film..."
+    />
+    <button type="submit">
+      <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+    </button>
+  </div>
+</form>
+<p *ngIf="noResult" class="no-result">Pas de résultat</p>
+<app-movies-list
+  *ngIf="moviesSearched"
+  [title]="'Les résultats de ma recherche'"
+  [movies]="moviesSearched"
+></app-movies-list>

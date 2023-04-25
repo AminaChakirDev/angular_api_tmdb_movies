@@ -1,0 +1,27 @@
+<div class="home-component">
+  <app-search-input [favorites]="favorites"></app-search-input>
+
+  <app-movies-list
+    [title]="'Les films populaires du moment'"
+    [movies]="popularMovies"
+    [favorites]="favorites"
+  ></app-movies-list>
+
+  <app-movies-list
+    [title]="'Prochainement dans les salles'"
+    [movies]="upcomingMovies"
+    [favorites]="favorites"
+  ></app-movies-list>
+
+  <app-movies-list
+    [title]="'Les films les mieux notés'"
+    [movies]="topRatedMovies"
+    [favorites]="favorites"
+  ></app-movies-list>
+
+  <app-movies-list
+    [title]="'Actuellement dans les salles'"
+    [movies]="nowPlayingMovies"
+    [favorites]="favorites"
+  ></app-movies-list>
+</div>

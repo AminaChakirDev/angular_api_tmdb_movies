@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-favorites-page',
+  templateUrl: './favorites-page.component.html',
+  styleUrls: ['./favorites-page.component.css'],
 })
-export class AppComponent {
-  title = 'movies-angular';
+export class FavoritesPageComponent {
   favorites: any[] = [];
 
   ngOnInit() {

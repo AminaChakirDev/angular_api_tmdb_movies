@@ -1,0 +1,68 @@
+<p *ngIf="!movie">En cours de chargement</p>
+<div
+  *ngIf="movie && images"
+  [ngStyle]="{
+    background: 'url(https://image.tmdb.org/t/p/original/' + currentImage + ')',
+    'background-repeat': 'no-repeat',
+    'background-size': 'cover',
+    'background-position': 'top',
+    'height.vh': 100,
+    filter: 'blur(5px)'
+  }"
+></div>
+<div class="movie-container" *ngIf="movie && images">
+  <div class="bg-black">
+    <div class="favorites-title-container">
+      <h1>{{ movie.title }}</h1>
+      <i
+        *ngIf="isFavorite"
+        (click)="handleFavorite(movie)"
+        class="fa-solid fa-heart fa-xl"
+      ></i>
+      <i
+        *ngIf="!isFavorite"
+        (click)="handleFavorite(movie)"
+        class="fa-regular fa-heart fa-xl"
+      ></i>
+    </div>
+    <div class="poster-details-container">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w185' + movie.poster_path"
+        alt=""
+      />
+      <div class="movie-details-container">
+        <ul class="genres">
+          <li *ngFor="let genre of movie.genres" class="genre">
+            {{ genre.name }}
+          </li>
+        </ul>
+        <p>Sorti le {{ movie.release_date | date : "dd/MM/YYYY" }}</p>
+        <div class="stars" *ngIf="starsCount > 0">
+          <ng-container *ngFor="let n of [].constructor(starsCount)">
+            <i class="fa-solid fa-star"></i>
+          </ng-container>
+        </div>
+        <div class="stars" *ngIf="starsCount === 0">
+          <i class="fa-regular fa-star"></i>
+        </div>
+        <p>{{ movie.overview }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <ul *ngIf="credits" class="actors-container">
+      <ng-container *ngFor="let actor of credits.cast">
+        <li *ngIf="actor.profile_path">
+          <img
+            class="actor-img"
+            [src]="'https://image.tmdb.org/t/p/w92/' + actor.profile_path"
+            alt="photo de l'acteur"
+            loading="lazy"
+            (click)="navigateWithSlug(actor.original_name, actor.id)"
+          />
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>

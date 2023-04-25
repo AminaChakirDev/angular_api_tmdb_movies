@@ -1,0 +1,17 @@
+<div class="movie-container" *ngIf="movie.poster_path">
+  <img
+    (click)="navigateWithSlug(movie.title, movie.id)"
+    [src]="'https://image.tmdb.org/t/p/original/' + movie.poster_path"
+    alt="affiche du film"
+  />
+  <i
+    *ngIf="isFavorite"
+    (click)="handleFavorite(movie)"
+    class="fa-solid fa-heart"
+  ></i>
+  <i
+    *ngIf="!isFavorite"
+    (click)="handleFavorite(movie)"
+    class="fa-regular fa-heart"
+  ></i>
+</div>

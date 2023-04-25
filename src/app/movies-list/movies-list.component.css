@@ -1,0 +1,11 @@
+.movies-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+h2 {
+  margin-top: 80px;
+  text-align: center;
+}

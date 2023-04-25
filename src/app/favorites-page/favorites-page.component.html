@@ -1,0 +1,11 @@
+<div class="favorites-component">
+  <p *ngIf="favorites.length === 0">
+    Vous n'avez pas encore choisi de films favoris
+  </p>
+  <app-movies-list
+    *ngIf="favorites"
+    [title]="'Mes films favoris'"
+    [movies]="favorites"
+    [favorites]="favorites"
+  ></app-movies-list>
+</div>

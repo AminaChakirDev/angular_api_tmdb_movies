@@ -1,0 +1,17 @@
+.movie-container {
+  position: relative;
+}
+
+.movie-container img {
+  border-radius: 10px;
+  cursor: pointer;
+  height: 300px;
+  object-fit: cover;
+}
+
+.fa-heart {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+}

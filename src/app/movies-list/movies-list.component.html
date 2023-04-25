@@ -1,0 +1,8 @@
+<ng-container *ngIf="movies && movies.length > 0">
+  <h2>{{ title }}</h2>
+  <div class="movies-container">
+    <ng-container *ngFor="let movie of movies">
+      <app-movie [movie]="movie" [favorites]="favorites"> </app-movie>
+    </ng-container>
+  </div>
+</ng-container>
